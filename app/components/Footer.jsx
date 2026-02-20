@@ -2,8 +2,10 @@
 
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaInstagram } from "react-icons/fa";
 import { personalInfo } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
@@ -46,7 +48,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="footer-text">
-          © {year} <span>{personalInfo.name}</span>. Built with Next.js &hearts;
+          © {year} <span>{personalInfo.name}</span>. {t("footer.text")}
         </p>
       </div>
     </footer>

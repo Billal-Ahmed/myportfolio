@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { FaArrowDown, FaGithub } from "react-icons/fa";
 import { personalInfo } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="hero" id="hero">
       {/* Background elements */}
@@ -20,7 +22,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {"// Hello World, I'm"}
+            {t("hero.greeting")}
           </motion.p>
 
           <motion.h1
@@ -58,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 1.0 }}
           >
             <a href="#projects" className="btn btn-primary">
-              <FaArrowDown /> View Projects
+              <FaArrowDown /> {t("hero.btnProjects")}
             </a>
             <a
               href={personalInfo.github}
@@ -66,7 +68,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="btn btn-outline"
             >
-              <FaGithub /> GitHub Profile
+              <FaGithub /> {t("hero.btnGithub")}
             </a>
           </motion.div>
         </div>

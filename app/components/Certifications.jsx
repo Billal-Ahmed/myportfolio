@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { FaCertificate, FaTrophy } from "react-icons/fa";
 import { certifications, achievements } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Certifications() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="certifications">
       <div className="container">
@@ -15,10 +17,10 @@ export default function Certifications() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">Credentials</span>
-          <h2 className="section-title">Certifications & Achievements</h2>
+          <span className="section-label">{t("certifications.label")}</span>
+          <h2 className="section-title">{t("certifications.title")}</h2>
           <p className="section-subtitle">
-            Professional certifications and competition wins
+            {t("certifications.subtitle")}
           </p>
         </motion.div>
 

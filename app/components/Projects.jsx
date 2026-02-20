@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaPlay } from "react-icons/fa";
 import { projects } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="projects">
       <div className="container">
@@ -15,11 +17,10 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">My Work</span>
-          <h2 className="section-title">Featured Projects</h2>
+          <span className="section-label">{t("projects.label")}</span>
+          <h2 className="section-title">{t("projects.title")}</h2>
           <p className="section-subtitle">
-            A selection of projects I&apos;ve built — from AI-powered tools to
-            full-stack web applications
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 

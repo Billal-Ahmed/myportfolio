@@ -33,6 +33,7 @@ import {
   SiLangchain,
 } from "react-icons/si";
 import { skills } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 const iconMap = {
   FaReact: FaReact,
@@ -69,6 +70,7 @@ const categoryIcons = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="skills">
       <div className="container">
@@ -79,10 +81,10 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">What I Work With</span>
-          <h2 className="section-title">Skills & Technologies</h2>
+          <span className="section-label">{t("skills.label")}</span>
+          <h2 className="section-title">{t("skills.title")}</h2>
           <p className="section-subtitle">
-            Tools and technologies I use to build modern applications
+            {t("skills.subtitle")}
           </p>
         </motion.div>
 

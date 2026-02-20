@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "../context/LanguageContext";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -14,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -33,9 +37,15 @@ export default function Navbar() {
           <ul className="navbar-links">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <a href={link.href}>{t(`nav.${link.label.toLowerCase()}`)}</a>
               </li>
             ))}
+            <li>
+              <ThemeToggle />
+            </li>
+            <li>
+              <LanguageSwitcher />
+            </li>
           </ul>
           <button
             className="navbar-toggle"
@@ -64,9 +74,13 @@ export default function Navbar() {
         </button>
         {navLinks.map((link) => (
           <a key={link.href} href={link.href} onClick={handleClick}>
-            {link.label}
+            {t(`nav.${link.label.toLowerCase()}`)}
           </a>
         ))}
+        <div style={{ marginTop: "16px", paddingLeft: "16px", display: "flex", gap: "12px", alignItems: "center" }}>
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
       </div>
     </>
   );

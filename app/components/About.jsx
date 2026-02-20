@@ -9,6 +9,7 @@ import {
   stats,
   languages,
 } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,6 +22,7 @@ const fadeUp = {
 
 export default function About() {
   const paragraphs = aboutText.split("\n\n");
+  const { t } = useLanguage();
 
   return (
     <section className="section" id="about">
@@ -32,10 +34,10 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">Who I Am</span>
-          <h2 className="section-title">About Me</h2>
+          <span className="section-label">{t("about.label")}</span>
+          <h2 className="section-title">{t("about.title")}</h2>
           <p className="section-subtitle">
-            CS graduate passionate about building practical, real-world software systems
+            {t("about.subtitle")}
           </p>
         </motion.div>
 
@@ -102,7 +104,7 @@ export default function About() {
                 <FaMapMarkerAlt />
               </div>
               <div>
-                <h4>Location</h4>
+                <h4>{t("about.location")}</h4>
                 <p>{personalInfo.location}</p>
               </div>
             </div>
@@ -111,7 +113,7 @@ export default function About() {
                 <FaEnvelope />
               </div>
               <div>
-                <h4>Email</h4>
+                <h4>{t("about.email")}</h4>
                 <p>{personalInfo.email}</p>
               </div>
             </div>
@@ -120,7 +122,7 @@ export default function About() {
                 <FaBriefcase />
               </div>
               <div>
-                <h4>Experience</h4>
+                <h4>{t("about.experience")}</h4>
                 <p>MERN Stack Developer at K2PeakTechnologies</p>
               </div>
             </div>
@@ -129,7 +131,7 @@ export default function About() {
                 <FaGlobe />
               </div>
               <div>
-                <h4>Languages</h4>
+                <h4>{t("about.languages")}</h4>
                 <p>{languages.map((l) => l.name).join(", ")}</p>
               </div>
             </div>

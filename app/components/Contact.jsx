@@ -11,8 +11,10 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 import { personalInfo } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -62,10 +64,10 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">Get In Touch</span>
-          <h2 className="section-title">Contact Me</h2>
+          <span className="section-label">{t("contact.label")}</span>
+          <h2 className="section-title">{t("contact.title")}</h2>
           <p className="section-subtitle">
-            Feel free to reach out for collaborations or just a friendly chat
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 

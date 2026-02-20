@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Providers } from "./providers";
 
 export const metadata = {
     title: "Bilal Ahmed | Software Engineer Portfolio",
@@ -25,8 +26,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                <Providers>{children}</Providers>
+            </body>
         </html>
     );
 }

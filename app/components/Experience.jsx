@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import { experience, education } from "@/app/data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Experience() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="experience">
       <div className="container">
@@ -15,10 +17,10 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">My Journey</span>
-          <h2 className="section-title">Experience & Education</h2>
+          <span className="section-label">{t("experience.label")}</span>
+          <h2 className="section-title">{t("experience.title")}</h2>
           <p className="section-subtitle">
-            Professional milestones and academic background
+            {t("experience.subtitle")}
           </p>
         </motion.div>
 
