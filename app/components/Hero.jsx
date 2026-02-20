@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="hero-bg-orb hero-orb-1" />
       <div className="hero-bg-orb hero-orb-2" />
 
-      <div className="container">
+      <div className="container hero-container">
         <div className="hero-content">
           <motion.p
             className="hero-greeting"
@@ -70,6 +70,15 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
+
+        <motion.div
+          className="hero-image-wrapper"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <img src="/bilal.png" alt="Bilal Ahmed" className="hero-image" />
+        </motion.div>
       </div>
     </section>
   );

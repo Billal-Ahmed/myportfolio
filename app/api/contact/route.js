@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request) {
     try {
@@ -13,14 +14,26 @@ export async function POST(request) {
             );
         }
 
-        // This is where you would send an email using services like Nodemailer, Resend, or SendGrid
-        console.log('--- NEW CONTACT FORM SUBMISSION ---');
-        console.log(`From: ${name} (${email})`);
-        console.log(`Message: ${message}`);
-        console.log('-----------------------------------');
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
 
-        // Simulate a delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            replyTo: email,
+            subject: `New Contact Form Message from ${name}`,
+            text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+            html: `<p><strong>Name:</strong> ${name}</p>
+                   <p><strong>Email:</strong> ${email}</p>
+                   <p><strong>Message:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>`,
+        };
+
+        await transporter.sendMail(mailOptions);
 
         return NextResponse.json(
             { message: 'Your message has been sent successfully!' },

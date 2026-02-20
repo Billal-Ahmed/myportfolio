@@ -474,6 +474,42 @@ body {
   pointer-events: none;
 }
 
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--border-color);
+  box-shadow: var(--accent-glow-strong);
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 80px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
 /* ========= ABOUT ========= */
 .about-grid {
   display: grid;
