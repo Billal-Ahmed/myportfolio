@@ -79,7 +79,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <img src="/bilal.png" alt="Bilal Ahmed" className="hero-image" />
+          <img src="/my_image_AI_edited.png" alt="Bilal Ahmed" className="hero-image" />
         </motion.div>
       </div>
     </section>
